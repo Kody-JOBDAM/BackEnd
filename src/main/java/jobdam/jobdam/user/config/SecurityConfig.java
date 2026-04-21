@@ -1,6 +1,5 @@
 package jobdam.jobdam.user.config;
 
-import jobdam.jobdam.user.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.AuthenticationManager;

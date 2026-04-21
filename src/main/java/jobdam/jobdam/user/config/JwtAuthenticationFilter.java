@@ -1,4 +1,4 @@
-package jobdam.jobdam.user.security;
+package jobdam.jobdam.user.config;
 
 import jobdam.jobdam.user.security.CustomUserDetailsService;
 import jobdam.jobdam.user.security.JwtTokenProvider;
