@@ -117,7 +117,16 @@ public class CommonService { //lock인지 확인하는 메서드 만들기?
                 .toList();
     }
 
-    /*public List<StudentReadDTO> studentRead(String role, Long id) { //그냥 user_id를 찾아서 맞는거
-        List<CommonEntity> entity = commonrepository
-    }*/
+    public List<StudentReadDTO> studentRead(String role, Long id) { //그냥 user_id를 찾아서 맞는거
+        List<CommonEntity> entity = commonrepository.findByUser_id(id);
+
+        return entity.stream()
+                .map(e -> new StudentReadDTO(
+                        e.getReservation_id(),
+                        e.getUser().getName(),
+                        e.getDate(),
+                        e.getPeriod()
+                ))
+                .toList();
+    }
 }

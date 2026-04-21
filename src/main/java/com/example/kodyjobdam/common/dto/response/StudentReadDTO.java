@@ -12,4 +12,10 @@ public class StudentReadDTO {
 
     private String period;
 
+    public StudentReadDTO(Long id, String name, LocalDate date, String period) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.period = period;
+    }
 }
