@@ -29,6 +29,7 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .name(request.getName())
+                .student_number(request.getStudent_number())
                 .role(UserRole.STUDENT)
                 .build();
 
@@ -37,6 +38,7 @@ public class AuthService {
         return UserResponse.builder()
                 .id(savedUser.getId())
                 .email(savedUser.getEmail())
+                .student_number(savedUser.getStudent_number())
                 .name(savedUser.getName())
                 .build();
     }

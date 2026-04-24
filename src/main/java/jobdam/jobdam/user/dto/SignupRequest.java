@@ -1,9 +1,6 @@
 package jobdam.jobdam.user.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import jobdam.jobdam.user.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +27,6 @@ public class SignupRequest {
     @NotBlank
     private String student_number;
 
-    @NotBlank
+    @NotNull
     private UserRole role;
 }
