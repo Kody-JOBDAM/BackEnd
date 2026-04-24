@@ -4,8 +4,10 @@ import jobdam.jobdam.user.UserRole;
 import jobdam.jobdam.user.entity.User;
 import jobdam.jobdam.user.dto.*;
 import jobdam.jobdam.user.UserRepository;
+import jobdam.jobdam.user.security.CustomUserDetails;
 import jobdam.jobdam.user.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,8 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
+
+
 
     @Transactional
     public UserResponse signup(SignupRequest request) {
@@ -65,4 +69,6 @@ public class AuthService {
                 .name(user.getName())
                 .build();
     }
+
+
 }

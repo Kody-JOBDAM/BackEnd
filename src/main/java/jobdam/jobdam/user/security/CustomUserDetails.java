@@ -10,7 +10,6 @@ import java.util.List;
 
 @Getter
 public class CustomUserDetails implements UserDetails {
-
     private final Long id;
     private final String email;
     private final String password;
@@ -37,5 +36,4 @@ public class CustomUserDetails implements UserDetails {
     public String getPassword() {
         return password;
     }
-
 }
