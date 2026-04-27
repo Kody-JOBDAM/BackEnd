@@ -1,4 +1,4 @@
-package jobdam.jobdam.user.config;
+package com.example.kody.jobdam.user.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;

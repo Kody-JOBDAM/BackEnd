@@ -1,6 +1,6 @@
-package jobdam.jobdam.user;
+package com.example.kody.jobdam.user;
 
-import jobdam.jobdam.user.entity.User;
+import com.example.kody.jobdam.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

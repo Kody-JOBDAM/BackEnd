@@ -1,7 +1,7 @@
-package jobdam.jobdam.user.dto;
+package com.example.kody.jobdam.user.dto;
 
 import jakarta.validation.constraints.*;
-import jobdam.jobdam.user.UserRole;
+import com.example.kody.jobdam.user.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 

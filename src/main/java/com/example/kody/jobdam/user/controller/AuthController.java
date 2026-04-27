@@ -1,7 +1,10 @@
-package jobdam.jobdam.user.controller;
+package com.example.kody.jobdam.user.controller;
 
-import jobdam.jobdam.user.dto.*;
-import jobdam.jobdam.user.service.AuthService;
+import com.example.kody.jobdam.user.dto.AuthResponse;
+import com.example.kody.jobdam.user.dto.LoginRequest;
+import com.example.kody.jobdam.user.dto.SignupRequest;
+import com.example.kody.jobdam.user.dto.UserResponse;
+import com.example.kody.jobdam.user.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;

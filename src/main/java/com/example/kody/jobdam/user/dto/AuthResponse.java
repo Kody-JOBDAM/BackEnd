@@ -1,4 +1,4 @@
-package jobdam.jobdam.user.dto;
+package com.example.kody.jobdam.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

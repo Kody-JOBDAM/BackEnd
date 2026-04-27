@@ -1,4 +1,4 @@
-package jobdam.jobdam;
+package com.example.kody.jobdam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

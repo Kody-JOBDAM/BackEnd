@@ -1,7 +1,7 @@
-package jobdam.jobdam.user.security;
+package com.example.kody.jobdam.user.security;
 
-import jobdam.jobdam.user.entity.User;
-import jobdam.jobdam.user.UserRepository;
+import com.example.kody.jobdam.user.entity.User;
+import com.example.kody.jobdam.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;

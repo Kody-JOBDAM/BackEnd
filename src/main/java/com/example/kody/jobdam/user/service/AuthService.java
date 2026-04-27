@@ -1,13 +1,14 @@
-package jobdam.jobdam.user.service;
+package com.example.kody.jobdam.user.service;
 
-import jobdam.jobdam.user.UserRole;
-import jobdam.jobdam.user.entity.User;
-import jobdam.jobdam.user.dto.*;
-import jobdam.jobdam.user.UserRepository;
-import jobdam.jobdam.user.security.CustomUserDetails;
-import jobdam.jobdam.user.security.JwtTokenProvider;
+import com.example.kody.jobdam.user.UserRole;
+import com.example.kody.jobdam.user.dto.AuthResponse;
+import com.example.kody.jobdam.user.dto.LoginRequest;
+import com.example.kody.jobdam.user.dto.SignupRequest;
+import com.example.kody.jobdam.user.dto.UserResponse;
+import com.example.kody.jobdam.user.entity.User;
+import com.example.kody.jobdam.user.UserRepository;
+import com.example.kody.jobdam.user.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

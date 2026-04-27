@@ -1,7 +1,7 @@
-package jobdam.jobdam.user.entity;
+package com.example.kody.jobdam.user.entity;
 
 import jakarta.persistence.*;
-import jobdam.jobdam.user.UserRole;
+import com.example.kody.jobdam.user.UserRole;
 import lombok.*;
 
 @Entity

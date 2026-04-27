@@ -1,4 +1,4 @@
-package jobdam.jobdam;
+package com.example.kody.jobdam;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

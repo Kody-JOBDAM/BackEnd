@@ -1,7 +1,7 @@
-package jobdam.jobdam.user.config;
+package com.example.kody.jobdam.user.config;
 
-import jobdam.jobdam.user.security.CustomUserDetailsService;
-import jobdam.jobdam.user.security.JwtTokenProvider;
+import com.example.kody.jobdam.user.security.CustomUserDetailsService;
+import com.example.kody.jobdam.user.security.JwtTokenProvider;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

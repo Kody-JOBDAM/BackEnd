@@ -1,4 +1,4 @@
-package jobdam.jobdam.user.security;
+package com.example.kody.jobdam.user.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
