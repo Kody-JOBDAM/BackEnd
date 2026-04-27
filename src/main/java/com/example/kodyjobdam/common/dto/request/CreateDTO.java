@@ -1,6 +1,6 @@
 package com.example.kodyjobdam.common.dto.request;
 
-import com.example.kodyjobdam.User.UserEntity;
+import com.example.kodyjobdam.User.User;
 import com.example.kodyjobdam.common.entity.CommonEntity;
 import com.example.kodyjobdam.common.entity.KindEnum;
 import com.example.kodyjobdam.common.entity.StateEnum;
@@ -25,7 +25,7 @@ public class CreateDTO {
 
     private KindEnum kind;
 
-    public CommonEntity toEntity(UserEntity user) { //title, content 이런건 DTO에 있는 값
+    public CommonEntity toEntity(User user) { //title, content 이런건 DTO에 있는 값
         return CommonEntity.builder()
                 .title(title)
                 .content(content)

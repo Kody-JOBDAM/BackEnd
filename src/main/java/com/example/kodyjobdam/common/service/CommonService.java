@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CommonService { //lock인지 확인하는 메서드 만들기?
+public class CommonService {
 
     private final CommonRepository commonrepository;
 
@@ -37,7 +37,7 @@ public class CommonService { //lock인지 확인하는 메서드 만들기?
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "회원이 없습니다."));
         * */
 
-        if (CreateList.isEmpty()) {//toEntity로 바꾸고 name, student set 하고
+        if (CreateList.isEmpty()) {
             commonSave(dto.toEntity(commonId.getUser()));
         }
         else {

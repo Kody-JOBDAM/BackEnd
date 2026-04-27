@@ -1,6 +1,6 @@
 package com.example.kodyjobdam.common.entity;
 
-import com.example.kodyjobdam.User.UserEntity;
+import com.example.kodyjobdam.User.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +27,7 @@ public class CommonEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     private String title;
 
