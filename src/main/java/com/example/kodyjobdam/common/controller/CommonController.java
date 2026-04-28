@@ -32,7 +32,7 @@ public class CommonController {
     })
     @PostMapping("/create/reservation")
     public ResponseEntity<?> createReservation(@RequestBody CreateDTO dto) {
-        commonService.createReservation(dto, 1L); // 현재 사용자 ID를 1L로 하드코딩
+        commonService.createReservation(dto, 1L);
         return ResponseEntity.ok().body("선생님께서 요청 검토중 입니다.");
     }
 
@@ -44,7 +44,7 @@ public class CommonController {
     })
     @PatchMapping("/cancel/{id}/reservation")
     public ResponseEntity<?> cancelReservation(@Parameter(description = "예약 ID") @PathVariable Long id) {
-        commonService.cancelReservation(id, 1L); // 현재 사용자 ID를 1L로 하드코딩
+        commonService.cancelReservation(id, 1L);
         return ResponseEntity.ok().body("취소되었습니다.");
     }
 
@@ -55,7 +55,7 @@ public class CommonController {
     })
     @PatchMapping("/teacher/{id}/allow")
     public ResponseEntity<?> reservationAllow(@Parameter(description = "예약 ID") @PathVariable Long id) {
-        commonService.allow(id, 1L); // 현재 선생님 ID를 1L로 하드코딩
+        commonService.allow(id, 1L);
         return ResponseEntity.ok().body("요청을 수락했습니다.");
     }
 
@@ -69,21 +69,21 @@ public class CommonController {
         return ResponseEntity.ok().body("해당 시간을 잠궜습니다.");
     }
 
-    @Operation(summary = "학생 예약 조회", description = "특정 학생의 예약 목록을 조회합니다. (현재는 ID로만 조회)")
+    @Operation(summary = "학생 예약 조회", description = "특정 학생의 예약 목록을 조회합니다. (현재는 ID 로만 조회)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
     })
     @GetMapping("/read")
     public List<StudentReadDTO> S_read(@Parameter(description = "역할 (현재 미사용)") String role) {
-        return commonService.studentRead(role, 1L); // 현재 사용자 ID를 1L로 하드코딩
+        return commonService.studentRead(role, 1L);
     }
 
-    @Operation(summary = "선생님 예약 조회", description = "특정 선생님에게 접수된 예약 목록을 조회합니다. (현재는 ID로만 조회)")
+    @Operation(summary = "선생님 예약 조회", description = "특정 선생님에게 접수된 예약 목록을 조회합니다. (현재는 ID 로만 조회)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
     })
     @GetMapping("/teacher/read")
     public List<TeacherReadDTO> T_read(@Parameter(description = "역할 (현재 미사용)") String role) {
-        return commonService.teacherRead(role, 1L); // 현재 선생님 ID를 1L로 하드코딩
+        return commonService.teacherRead(role, 1L);
     }
 }

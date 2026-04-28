@@ -8,6 +8,8 @@ import com.example.kodyjobdam.common.dto.response.TeacherReadDTO;
 import com.example.kodyjobdam.common.entity.CommonEntity;
 import com.example.kodyjobdam.common.entity.StateEnum;
 import com.example.kodyjobdam.common.repository.CommonRepository;
+import com.example.kodyjobdam.user.UserRepository;
+import com.example.kodyjobdam.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,26 +21,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommonService {
 
-    private final CommonRepository commonrepository;
+    private final CommonRepository commonRepository;
+
+    private final UserRepository userRepository;
 
     public void commonSave(CommonEntity entity) {
-        commonrepository.save(entity);
+        commonRepository.save(entity);
     }
 
     public void createReservation(CreateDTO dto, Long id) {
 
         //여기에 나중에 토큰에서 빼온 id를 매개변수로
-        List<CommonEntity> CreateList = commonrepository.findAllByDateAndPeriod(dto.getDate(), dto.getPeriod()); //여기 state확인 해야함. RESERVED인가
+        List<CommonEntity> CreateList = commonRepository.findAllByDateAndPeriod(dto.getDate(), dto.getPeriod()); //여기 state확인 해야함. RESERVED인가
 
-        /*CommonEntity commonId = commonrepository.findByUser_id(id) //commonrepository면 안됨, 이거는 그거 name, studentNumber를 위해
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "회원이 없습니다."));*/
-
-        /*UserEntity userId = userrepository.findById(id)
+        User userId = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "회원이 없습니다."));
-        * */
 
         if (CreateList.isEmpty()) {
-            commonSave(dto.toEntity(commonId.getUser()));
+            commonSave(dto.toEntity(userId));
         }
         else {
             for (CommonEntity entity : CreateList) {
@@ -60,7 +60,7 @@ public class CommonService {
 
     public void cancelReservation(Long reservationId, Long userId) {
 
-        CommonEntity entity = commonrepository.findById(reservationId)
+        CommonEntity entity = commonRepository.findById(reservationId)
                 .orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "취소 할 수 없습니다."));
 
@@ -74,7 +74,7 @@ public class CommonService {
     }
 
     public void allow(Long reservationId, Long teacherId) {
-        CommonEntity entity = commonrepository.findById(reservationId)
+        CommonEntity entity = commonRepository.findById(reservationId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "값을 찾을 수 없습니다."));
 
         if(entity.getState() == StateEnum.CANCEL) {
@@ -88,7 +88,7 @@ public class CommonService {
     }
 
     public void teacherRock(LockDTO dto) {
-        List<CommonEntity> rockList = commonrepository.findAllByDateAndPeriod(dto.getDate(), dto.getPeriod());
+        List<CommonEntity> rockList = commonRepository.findAllByDateAndPeriod(dto.getDate(), dto.getPeriod());
 
         if(rockList.isEmpty()) {
            commonSave(dto.toEntity(dto));
@@ -105,7 +105,7 @@ public class CommonService {
     }
 
     public List<TeacherReadDTO> teacherRead(String role, Long id) { //
-        List<CommonEntity> entity = commonrepository.findByUser_id(id);
+        List<CommonEntity> entity = commonRepository.findByUser_id(id);
 
         return entity.stream()
                 .map(e -> new TeacherReadDTO(
@@ -118,7 +118,7 @@ public class CommonService {
     }
 
     public List<StudentReadDTO> studentRead(String role, Long id) { //그냥 user_id를 찾아서 맞는거
-        List<CommonEntity> entity = commonrepository.findByUser_id(id);
+        List<CommonEntity> entity = commonRepository.findByUser_id(id);
 
         return entity.stream()
                 .map(e -> new StudentReadDTO(

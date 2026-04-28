@@ -1,4 +1,4 @@
-package com.example.kody.jobdam.user.dto;
+package com.example.kodyjobdam.user.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.example.kody.jobdam.user.security;
+package com.example.kodyjobdam.user.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

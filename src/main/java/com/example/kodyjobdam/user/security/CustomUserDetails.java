@@ -1,6 +1,6 @@
-package com.example.kody.jobdam.user.security;
+package com.example.kodyjobdam.user.security;
 
-import com.example.kody.jobdam.user.entity.User;
+import com.example.kodyjobdam.user.entity.User;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-    package com.example.kody.jobdam.user;
+    package com.example.kodyjobdam.user;
 
     public enum UserRole {
         STUDENT,

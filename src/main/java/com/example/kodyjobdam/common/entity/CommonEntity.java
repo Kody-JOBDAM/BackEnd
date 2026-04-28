@@ -1,6 +1,6 @@
 package com.example.kodyjobdam.common.entity;
 
-import com.example.kodyjobdam.User.User;
+import com.example.kodyjobdam.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,9 +1,9 @@
 package com.example.kodyjobdam.common.dto.request;
 
-import com.example.kodyjobdam.User.User;
 import com.example.kodyjobdam.common.entity.CommonEntity;
 import com.example.kodyjobdam.common.entity.KindEnum;
 import com.example.kodyjobdam.common.entity.StateEnum;
+import com.example.kodyjobdam.user.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;

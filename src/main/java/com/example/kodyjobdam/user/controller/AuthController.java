@@ -1,13 +1,14 @@
-package com.example.kody.jobdam.user.controller;
+package com.example.kodyjobdam.user.controller;
 
-import com.example.kody.jobdam.user.dto.AuthResponse;
-import com.example.kody.jobdam.user.dto.LoginRequest;
-import com.example.kody.jobdam.user.dto.SignupRequest;
-import com.example.kody.jobdam.user.dto.UserResponse;
-import com.example.kody.jobdam.user.service.AuthService;
+import com.example.kodyjobdam.user.dto.AuthResponse;
+import com.example.kodyjobdam.user.dto.LoginRequest;
+import com.example.kodyjobdam.user.dto.SignupRequest;
+import com.example.kodyjobdam.user.dto.UserResponse;
+import com.example.kodyjobdam.user.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,11 +1,12 @@
-package com.example.kody.jobdam.user.config;
+package com.example.kodyjobdam.user.config;
 
-import com.example.kody.jobdam.user.security.CustomUserDetailsService;
-import com.example.kody.jobdam.user.security.JwtTokenProvider;
+import com.example.kodyjobdam.user.security.CustomUserDetailsService;
+import com.example.kodyjobdam.user.security.JwtTokenProvider;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,9 +1,11 @@
-package com.example.kody.jobdam.user.security;
+package com.example.kodyjobdam.user.security;
 
-import com.example.kody.jobdam.user.entity.User;
-import com.example.kody.jobdam.user.UserRepository;
+import com.example.kodyjobdam.user.UserRepository;
+import com.example.kodyjobdam.user.entity.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
