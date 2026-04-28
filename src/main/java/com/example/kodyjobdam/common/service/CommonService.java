@@ -104,7 +104,7 @@ public class CommonService {
         commonSave(dto.toEntity(dto));
     }
 
-    public List<TeacherReadDTO> teacherRead(String role, Long id) { //
+    public List<TeacherReadDTO> T_Read(Long id) { //수락한 예약
         List<CommonEntity> entity = commonRepository.findByUser_id(id);
 
         return entity.stream()
@@ -117,7 +117,7 @@ public class CommonService {
                 .toList();
     }
 
-    public List<StudentReadDTO> studentRead(String role, Long id) { //그냥 user_id를 찾아서 맞는거
+    public List<StudentReadDTO> S_Read(Long id) { //그냥 user_id를 찾아서 맞는거
         List<CommonEntity> entity = commonRepository.findByUser_id(id);
 
         return entity.stream()

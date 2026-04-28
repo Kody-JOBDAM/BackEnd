@@ -5,6 +5,7 @@ import com.example.kodyjobdam.common.dto.request.LockDTO;
 import com.example.kodyjobdam.common.dto.response.StudentReadDTO;
 import com.example.kodyjobdam.common.dto.response.TeacherReadDTO;
 import com.example.kodyjobdam.common.service.CommonService;
+import com.example.kodyjobdam.user.security.SecurityUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -24,6 +25,8 @@ public class CommonController {
 
     private final CommonService commonService;
 
+    SecurityUtil securityUtil;
+
     @Operation(summary = "예약 생성", description = "새로운 예약을 생성합니다. 성공 시 '선생님께서 요청 검토중 입니다.' 메시지를 반환합니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "요청 성공"),
@@ -32,7 +35,7 @@ public class CommonController {
     })
     @PostMapping("/create/reservation")
     public ResponseEntity<?> createReservation(@RequestBody CreateDTO dto) {
-        commonService.createReservation(dto, 1L);
+        commonService.createReservation(dto, securityUtil.getCurrentUserId());
         return ResponseEntity.ok().body("선생님께서 요청 검토중 입니다.");
     }
 
@@ -44,7 +47,7 @@ public class CommonController {
     })
     @PatchMapping("/cancel/{id}/reservation")
     public ResponseEntity<?> cancelReservation(@Parameter(description = "예약 ID") @PathVariable Long id) {
-        commonService.cancelReservation(id, 1L);
+        commonService.cancelReservation(id, securityUtil.getCurrentUserId());
         return ResponseEntity.ok().body("취소되었습니다.");
     }
 
@@ -55,7 +58,7 @@ public class CommonController {
     })
     @PatchMapping("/teacher/{id}/allow")
     public ResponseEntity<?> reservationAllow(@Parameter(description = "예약 ID") @PathVariable Long id) {
-        commonService.allow(id, 1L);
+        commonService.allow(id, securityUtil.getCurrentUserId());
         return ResponseEntity.ok().body("요청을 수락했습니다.");
     }
 
@@ -74,8 +77,8 @@ public class CommonController {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
     })
     @GetMapping("/read")
-    public List<StudentReadDTO> S_read(@Parameter(description = "역할 (현재 미사용)") String role) {
-        return commonService.studentRead(role, 1L);
+    public List<StudentReadDTO> S_read() {
+        return commonService.S_Read(securityUtil.getCurrentUserId());
     }
 
     @Operation(summary = "선생님 예약 조회", description = "특정 선생님에게 접수된 예약 목록을 조회합니다. (현재는 ID 로만 조회)")
@@ -83,7 +86,7 @@ public class CommonController {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
     })
     @GetMapping("/teacher/read")
-    public List<TeacherReadDTO> T_read(@Parameter(description = "역할 (현재 미사용)") String role) {
-        return commonService.teacherRead(role, 1L);
+    public List<TeacherReadDTO> T_read() {
+        return commonService.T_Read(securityUtil.getCurrentUserId());
     }
 }
