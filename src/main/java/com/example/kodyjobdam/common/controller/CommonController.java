@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Tag(name = "Common", description = "공통 API")
-@RequestMapping("/common")
 @RestController
 @RequiredArgsConstructor
 public class CommonController {
@@ -33,7 +32,7 @@ public class CommonController {
             @ApiResponse(responseCode = "409", description = "이미 예약된 시간이거나 동일 사용자의 다른 예약이 존재"),
             @ApiResponse(responseCode = "423", description = "잠긴 시간대")
     })
-    @PostMapping("/create/reservation")
+    @PostMapping("/student/create")
     public ResponseEntity<?> createReservation(@RequestBody CreateDTO dto) {
         commonService.createReservation(dto, securityUtil.getCurrentUserId());
         return ResponseEntity.ok().body("선생님께서 요청 검토중 입니다.");
@@ -45,7 +44,7 @@ public class CommonController {
             @ApiResponse(responseCode = "403", description = "권한 없음"),
             @ApiResponse(responseCode = "404", description = "취소할 예약을 찾을 수 없음")
     })
-    @PatchMapping("/cancel/{id}/reservation")
+    @PatchMapping("/student/cancel/{id}")
     public ResponseEntity<?> cancelReservation(@Parameter(description = "예약 ID") @PathVariable Long id) {
         commonService.cancelReservation(id, securityUtil.getCurrentUserId());
         return ResponseEntity.ok().body("취소되었습니다.");
@@ -76,7 +75,7 @@ public class CommonController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
     })
-    @GetMapping("/read")
+    @GetMapping("/student/read")
     public List<StudentReadDTO> S_read() {
         return commonService.S_Read(securityUtil.getCurrentUserId());
     }

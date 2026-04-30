@@ -64,7 +64,7 @@ public class CommonService {
                 .orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "취소 할 수 없습니다."));
 
-        if (!entity.getUser().getId().equals(userId)) { // ???
+        if (!entity.getUser().getId().equals(userId)) { // 본인 예약을 본인이 취소하였는지
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "권한이 없습니다.");
         }
 
@@ -117,7 +117,7 @@ public class CommonService {
                 .toList();
     }
 
-    public List<StudentReadDTO> S_Read(Long id) { //그냥 user_id를 찾아서 맞는거
+    public List<StudentReadDTO> S_Read(Long id) {
         List<CommonEntity> entity = commonRepository.findByUser_id(id);
 
         return entity.stream()
