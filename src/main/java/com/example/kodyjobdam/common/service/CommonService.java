@@ -46,7 +46,7 @@ public class CommonService {
                     throw new ResponseStatusException(HttpStatus.LOCKED, "잠긴 날짜 입니다.");
                 }
                 if (
-                        entity.getReservation_id().equals(id) &&
+                        entity.getUser().getId().equals(id) &&
                         entity.getState() != StateEnum.CANCEL) {
                     throw new ResponseStatusException(HttpStatus.CONFLICT, "이미 예약한 시간입니다.");
                 }
